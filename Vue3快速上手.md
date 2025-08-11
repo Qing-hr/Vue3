@@ -1,87 +1,6 @@
-# 1. Vue3简介
-- 2020年9月18日，`Vue.js`发布版`3.0`版本，代号：`One Piece`（n
-- 经历了：[4800+次提交](https://github.com/vuejs/core/commits/main)、[40+个RFC](https://github.com/vuejs/rfcs/tree/master/active-rfcs)、[600+次PR](https://github.com/vuejs/vue-next/pulls?q=is%3Apr+is%3Amerged+-author%3Aapp%2Fdependabot-preview+)、[300+贡献者](https://github.com/vuejs/core/graphs/contributors)
-- 官方发版地址：[Release v3.0.0 One Piece · vuejs/core](https://github.com/vuejs/core/releases/tag/v3.0.0)
-- 截止2023年10月，最新的公开版本为：`3.3.4`
+# 1. 创建Vue3工程
 
-  <img src="images/1695089947298-161c1b47-eb86-42fb-b1f8-d6a4fcab8ee2.png" alt="image.png" style="zoom:30%;" /> 
-
-## 1.1. 【性能的提升】
-
-- 打包大小减少`41%`。
-
-- 初次渲染快`55%`, 更新渲染快`133%`。
-
-- 内存减少`54%`。
-
-  
-## 1.2.【 源码的升级】
-
-- 使用`Proxy`代替`defineProperty`实现响应式。
-
-- 重写虚拟`DOM`的实现和`Tree-Shaking`。
-
-  
-## 1.3. 【拥抱TypeScript】
-
-- `Vue3`可以更好的支持`TypeScript`。
-
-  
-## 1.4. 【新的特性】
-
-1. `Composition API`（组合`API`）：
-   - `setup`
-   - `ref`与`reactive`
-   - `computed`与`watch`
-   
-     ......
-   
-2. 新的内置组件：
-   - `Fragment`
-   - `Teleport`
-   - `Suspense`
-
-     ......
-
-3. 其他改变：
-   - 新的生命周期钩子
-   - `data` 选项应始终被声明为一个函数
-   - 移除`keyCode`支持作为` v-on` 的修饰符
-
-     ......
-
-
-
-# 2. 创建Vue3工程
-
-## 2.1. 【基于 vue-cli 创建】
-点击查看[官方文档](https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create)
-
-> 备注：目前`vue-cli`已处于维护模式，官方推荐基于 `Vite` 创建项目。
-
-```powershell
-## 查看@vue/cli版本，确保@vue/cli版本在4.5.0以上
-vue --version
-
-## 安装或者升级你的@vue/cli 
-npm install -g @vue/cli
-
-## 执行创建命令
-vue create vue_test
-
-##  随后选择3.x
-##  Choose a version of Vue.js that you want to start the project with (Use arrow keys)
-##  > 3.x
-##    2.x
-
-## 启动
-cd vue_test
-npm run serve
-```
-
----
-
-## 2.2. 【基于 vite 创建】(推荐)
+## 1.1. 【基于 vite 创建】
 `vite` 是新一代前端构建工具，官网地址：[https://vitejs.cn](https://vitejs.cn/)，`vite`的优势如下：
 
 - 轻量快速的热重载（`HMR`），能实现极速的服务启动。
@@ -151,7 +70,7 @@ npm create vue@latest
 - `Vite` 项目中，`index.html` 是项目的入口文件，在项目最外层。
 - 加载`index.html`后，`Vite` 解析 `<script type="module" src="xxx">` 指向的`JavaScript`。
 - `Vue3`**中是通过 **`createApp` 函数创建一个应用实例。
-## 2.3. 【一个简单的效果】
+## 1.2. 【一个简单的效果】
 
 `Vue3`向下兼容`Vue2`语法，且`Vue3`中的模板中可以没有根标签
 
@@ -192,8 +111,8 @@ npm create vue@latest
 ```
 
 
-# 3. Vue3核心语法
-## 3.1.  【OptionsAPI 与 CompositionAPI】
+# 2. Vue3核心语法
+## 2.1.  【OptionsAPI 与 CompositionAPI】
 
 - `Vue2`的`API`设计是`Options`（配置）风格的。
 - `Vue3`的`API`设计是`Composition`（组合）风格的。
@@ -211,7 +130,7 @@ npm create vue@latest
 
 > 说明：以上四张动图原创作者：大帅老猿
 
-## 3.2. 【拉开序幕的 setup】
+## 2.2. 【拉开序幕的 setup】
 ### setup 概述
 `setup`是`Vue3`中一个新的配置项，值是一个函数，它是 `Composition API` **“表演的舞台**_**”**_，组件中所用到的：数据、方法、计算属性、监视......等等，均配置在`setup`中。
 
@@ -329,7 +248,7 @@ export default defineConfig({
 ```
 
 3. 第三步：`<script setup lang="ts" name="Person">`
-## 3.3. 【ref 创建：基本类型的响应式数据】
+## 2.3. 【ref 创建：基本类型的响应式数据】
 
 - **作用：**定义响应式变量。
 - **语法：**`let xxx = ref(初始值)`。
@@ -374,7 +293,7 @@ export default defineConfig({
   }
 </script>
 ```
-## 3.4. 【reactive 创建：对象类型的响应式数据】
+## 2.4. 【reactive 创建：对象类型的响应式数据】
 
 - **作用：**定义一个**响应式对象**（基本类型不要用它，要用`ref`，否则报错）
 - **语法：**`let 响应式对象= reactive(源对象)`。
@@ -426,7 +345,7 @@ function test(){
 }
 </script>
 ```
-## 3.5. 【ref 创建：对象类型的响应式数据】
+## 2.5. 【ref 创建：对象类型的响应式数据】
 
 - 其实`ref`接收的数据可以是：**基本类型**、**对象类型**。
 - 若`ref`接收的是对象类型，内部其实也是调用了`reactive`函数。
@@ -478,7 +397,7 @@ function test(){
 }
 </script>
 ```
-## 3.6. 【ref 对比 reactive】
+## 2.6. 【ref 对比 reactive】
 宏观角度看：
 
 > 1. `ref`用来定义：**基本类型数据**、**对象类型数据**；
@@ -498,7 +417,7 @@ function test(){
 > 2. 若需要一个响应式对象，层级不深，`ref`、`reactive`都可以。
 > 3. 若需要一个响应式对象，且层级较深，推荐使用`reactive`。
 
-## 3.7. 【toRefs 与 toRef】
+## 2.7. 【toRefs 与 toRef】
 
 - 作用：将一个响应式对象中的每一个属性，转换为`ref`对象。
 - 备注：`toRefs`与`toRef`功能一致，但`toRefs`可以批量转换。
@@ -539,7 +458,7 @@ function test(){
   }
 </script>
 ```
-## 3.8. 【computed】
+## 2.8. 【computed】
 
 作用：根据已有数据计算出新数据（和`Vue2`中的`computed`作用一致）。
 
@@ -586,7 +505,7 @@ function test(){
   } 
 </script>
 ```
-## 3.9.【watch】
+## 2.9.【watch】
 
 - 作用：监视数据的变化（和`Vue2`中的`watch`作用一致）
 - 特点：`Vue3`中的`watch`只能监视以下**四种数据**：
@@ -845,7 +764,7 @@ function test(){
 
 </script>
 ```
-## 3.10. 【watchEffect】
+## 2.10. 【watchEffect】
 
 * 官网：立即运行一个函数，同时响应式地追踪其依赖，并在依赖更改时重新执行该函数。
 
@@ -912,7 +831,7 @@ function test(){
   
   
 
-## 3.11. 【标签的 ref 属性】
+## 2.11. 【标签的 ref 属性】
 
 作用：用于注册模板引用。
 
@@ -995,7 +914,7 @@ function test(){
 
 
 
-## 3.12. 【props】
+## 2.12. 【props】
 
 > ```js
 >// 定义一个接口，限制每个Person对象的格式
@@ -1062,7 +981,7 @@ function test(){
 >   ```
 > 
 
-## 3.13. 【生命周期】
+## 2.13. 【生命周期】
 
 * 概念：`Vue`组件实例在创建时要经历一系列的初始化步骤，在此过程中`Vue`会在合适的时机，调用特定的函数，从而让开发者有机会在特定阶段运行自己的代码，这些特定的函数统称为：生命周期钩子
 
@@ -1143,7 +1062,7 @@ function test(){
   </script>
   ```
 
-## 3.14. 【自定义hook】
+## 2.14. 【自定义hook】
 
 - 什么是`hook`？—— 本质是一个函数，把`setup`函数中使用的`Composition API`进行了封装，类似于`vue2.x`中的`mixin`。
 
@@ -1241,13 +1160,13 @@ function test(){
 
 ---
 
-# 4. 路由
+# 3. 路由
 
-## 4.1. 【对路由的理解】
+## 3.1. 【对路由的理解】
 
 <img src="images/image-20231018144351536.png" alt="image-20231018144351536" style="zoom:20%;border-radius:40px" /> 
 
-## 4.2. 【基本切换效果】
+## 3.2. 【基本切换效果】
 
 - `Vue3`中要使用`vue-router`的最新版本，目前是`4`版本。
 
@@ -1307,13 +1226,13 @@ function test(){
   </script>
   ```
 
-## 4.3. 【两个注意点】
+## 3.3. 【两个注意点】
 
 > 1. 路由组件通常存放在`pages` 或 `views`文件夹，一般组件通常存放在`components`文件夹。
 >
 > 2. 通过点击导航，视觉效果上“消失” 了的路由组件，默认是被**卸载**掉的，需要的时候再去**挂载**。
 
-## 4.4.【路由器工作模式】
+## 3.4.【路由器工作模式】
 
 1. `history`模式
 
@@ -1341,7 +1260,7 @@ function test(){
    > })
    > ```
 
-## 4.5. 【to的两种写法】
+## 3.5. 【to的两种写法】
 
 ```vue
 <!-- 第一种：to的字符串写法 -->
@@ -1351,7 +1270,7 @@ function test(){
 <router-link active-class="active" :to="{path:'/home'}">Home</router-link>
 ```
 
-## 4.6. 【命名路由】
+## 3.6. 【命名路由】
 
 作用：可以简化路由跳转及传参（后面就讲）。
 
@@ -1389,7 +1308,7 @@ routes:[
 
 
 
-## 4.7. 【嵌套路由】
+## 3.7. 【嵌套路由】
 
 1. 编写`News`的子路由：`Detail.vue`
 
@@ -1453,7 +1372,7 @@ routes:[
 
    
 
-## 4.8. 【路由传参】
+## 3.8. 【路由传参】
 
 ### query参数
 
@@ -1527,7 +1446,7 @@ routes:[
 >
 > 备注2：传递`params`参数时，需要提前在规则中占位。
 
-## 4.9. 【路由的props配置】
+## 3.9. 【路由的props配置】
 
 作用：让路由组件更方便的收到参数（可以将路由参数作为`props`传给组件）
 
@@ -1550,7 +1469,7 @@ routes:[
 }
 ```
 
-## 4.10. 【 replace属性】
+## 3.10. 【 replace属性】
 
   1. 作用：控制路由跳转时操作浏览器历史记录的模式。
 
@@ -1565,7 +1484,7 @@ routes:[
      <RouterLink replace .......>News</RouterLink>
      ```
 
-## 4.11. 【编程式导航】
+## 3.11. 【编程式导航】
 
 路由组件的两个重要的属性：`$route`和`$router`变成了两个`hooks`
 
@@ -1581,7 +1500,7 @@ console.log(router.push)
 console.log(router.replace)
 ```
 
-## 4.12. 【重定向】
+## 3.12. 【重定向】
 
 1. 作用：将特定的路径，重新定向到已有路由。
 
@@ -1596,13 +1515,13 @@ console.log(router.replace)
 
 
 
-# 5. pinia 
+# 4. pinia 
 
-## 5.1【准备一个效果】
+## 4.1【准备一个效果】
 
 <img src="./images/pinia_example.gif" alt="pinia_example" style="zoom:30%;border:3px solid" /> 
 
-## 5.2【搭建 pinia 环境】
+## 4.2【搭建 pinia 环境】
 
 第一步：`npm install pinia`
 
@@ -1628,7 +1547,7 @@ app.mount('#app')
 
 <img src="https://cdn.nlark.com/yuque/0/2023/png/35780599/1684309952481-c67f67f9-d1a3-4d69-8bd6-2b381e003f31.png" style="zoom:80%;border:1px solid black;border-radius:10px" />
 
-## 5.3【存储+读取数据】
+## 4.3【存储+读取数据】
 
 1. `Store`是一个保存：**状态**、**业务逻辑** 的实体，每个组件都可以**读取**、**写入**它。
 
@@ -1715,7 +1634,7 @@ app.mount('#app')
 
    
 
-## 5.4.【修改数据】(三种方式)
+## 4.4.【修改数据】(三种方式)
 
 1. 第一种修改方式，直接修改
 
@@ -1769,7 +1688,7 @@ app.mount('#app')
    ```
 
 
-## 5.5.【storeToRefs】
+## 4.5.【storeToRefs】
 
 - 借助`storeToRefs`将`store`中的数据转为`ref`对象，方便在模板中使用。
 - 注意：`pinia`提供的`storeToRefs`只会将数据做转换，而`Vue`的`toRefs`会转换`store`中数据。
@@ -1794,7 +1713,7 @@ app.mount('#app')
 
 ```
 
-## 5.6.【getters】
+## 4.6.【getters】
 
   1. 概念：当`state`中的数据，需要经过处理后再使用时，可以使用`getters`配置。
 
@@ -1836,7 +1755,7 @@ app.mount('#app')
 
      
 
-## 5.7.【$subscribe】
+## 4.7.【$subscribe】
 
 通过 store 的 `$subscribe()` 方法侦听 `state` 及其变化
 
@@ -1849,7 +1768,7 @@ talkStore.$subscribe((mutate,state)=>{
 
 
 
-## 5.8. 【store组合式写法】
+## 4.8. 【store组合式写法】
 
 ```ts
 import {defineStore} from 'pinia'
@@ -1878,7 +1797,7 @@ export const useTalkStore = defineStore('talk',()=>{
 
 
 
-# 6. 组件通信
+# 5. 组件通信
 
 **`Vue3`组件通信和`Vue2`的区别：**
 
@@ -1893,7 +1812,7 @@ export const useTalkStore = defineStore('talk',()=>{
 
 <img src="images/image-20231119185900990.png" alt="image-20231119185900990" style="zoom:60%;" /> 
 
-## 6.1. 【props】
+## 5.1. 【props】
 
 概述：`props`是使用频率最高的一种通信方式，常用与 ：**父 ↔ 子**。
 
@@ -1945,7 +1864,7 @@ export const useTalkStore = defineStore('talk',()=>{
 </script>
 ```
 
-## 6.2. 【自定义事件】
+## 5.2. 【自定义事件】
 
 1. 概述：自定义事件常用于：**子 => 父。**
 2. 注意区分好：原生事件、自定义事件。
@@ -1972,7 +1891,7 @@ export const useTalkStore = defineStore('talk',()=>{
    this.$emit('send-toy', 具体数据)
    ```
 
-## 6.3. 【mitt】
+## 5.3. 【mitt】
 
 概述：与消息订阅与发布（`pubsub`）功能类似，可以实现任意组件间通信。
 
@@ -2046,7 +1965,7 @@ function sendToy(){
 
 **注意这个重要的内置关系，总线依赖着这个内置关系**
 
-## 6.4.【v-model】
+## 5.4.【v-model】
 
 1. 概述：实现 **父↔子** 之间相互通信。
 
@@ -2137,7 +2056,7 @@ function sendToy(){
    
 
 
-## 6.5.【$attrs 】
+## 5.5.【$attrs 】
 
 1. 概述：`$attrs`用于实现**当前组件的父组件**，向**当前组件的子组件**通信（**祖→孙**）。
 
@@ -2205,7 +2124,7 @@ function sendToy(){
 </script>
 ```
 
-## 6.6. 【$refs、$parent】
+## 5.6. 【$refs、$parent】
 
 1. 概述：
 
@@ -2219,7 +2138,7 @@ function sendToy(){
    | `$refs`   | 值为对象，包含所有被`ref`属性标识的`DOM`元素或组件实例。 |
    | `$parent` | 值为对象，当前组件的父组件实例对象。                     |
 
-## 6.7. 【provide、inject】
+## 5.7. 【provide、inject】
 
 1. 概述：实现**祖孙组件**直接通信
 
@@ -2286,11 +2205,11 @@ function sendToy(){
    ```
 
 
-## 6.8. 【pinia】
+## 5.8. 【pinia】
 
 参考之前`pinia`部分的讲解
 
-## 6.9. 【slot】
+## 5.9. 【slot】
 
 ### 1. 默认插槽
 
@@ -2374,9 +2293,9 @@ function sendToy(){
 
 
 
-# 7. 其它 API
+# 6. 其它 API
 
-## 7.1.【shallowRef 与 shallowReactive 】
+## 6.1.【shallowRef 与 shallowReactive 】
 
 ### `shallowRef`
 
@@ -2408,7 +2327,7 @@ function sendToy(){
 
 
 
-## 7.2.【readonly 与 shallowReadonly】
+## 6.2.【readonly 与 shallowReadonly】
 
 ### **`readonly`**
 
@@ -2449,7 +2368,7 @@ function sendToy(){
 
      
 
-## 7.3.【toRaw 与 markRaw】
+## 6.3.【toRaw 与 markRaw】
 
 ### `toRaw`
 
@@ -2506,7 +2425,7 @@ function sendToy(){
    let citys2 = reactive(citys)
    ```
 
-## 7.4.【customRef】
+## 6.4.【customRef】
 
 作用：创建一个自定义的`ref`，并对其依赖项跟踪和更新触发进行逻辑控制。
 
@@ -2542,9 +2461,9 @@ export default function(initValue:string,delay:number){
 
 
 
-# 8. Vue3新组件
+# 7. Vue3新组件
 
-## 8.1. 【Teleport】
+## 7.1. 【Teleport】
 
 - 什么是Teleport？—— Teleport 是一种能够将我们的**组件html结构**移动到指定位置的技术。
 
@@ -2558,7 +2477,7 @@ export default function(initValue:string,delay:number){
 </teleport>
 ```
 
-## 8.2. 【Suspense】
+## 7.2. 【Suspense】
 
 -  等待异步组件时渲染一些额外内容，让应用有更好的用户体验 
 -  使用步骤： 
@@ -2588,7 +2507,7 @@ const Child = defineAsyncComponent(()=>import('./Child.vue'))
 
 
 
-## 8.3.【全局API转移到应用对象】
+## 7.3.【全局API转移到应用对象】
 
 - `app.component`
 - `app.config`
@@ -2597,7 +2516,7 @@ const Child = defineAsyncComponent(()=>import('./Child.vue'))
 - `app.unmount`
 - `app.use`
 
-## 8.4.【其他】
+## 7.4.【其他】
 
 - 过渡类名 `v-enter` 修改为 `v-enter-from`、过渡类名 `v-leave` 修改为 `v-leave-from`。
 
@@ -2615,3 +2534,4 @@ const Child = defineAsyncComponent(()=>import('./Child.vue'))
 - 移除了`$children` 实例 `propert`。
 
   ......
+
