@@ -15,7 +15,6 @@
 
 <img src="images/1696662249851-db6403a1-acb5-481a-88e0-e1e34d2ef53a.gif" alt="3.gif" style="height:300px;border-radius:10px"  /><img src="images/1696662256560-7239b9f9-a770-43c1-9386-6cc12ef1e9c0.gif" alt="4.gif" style="height:300px;border-radius:10px"  />
 
-> 说明：以上四张动图原创作者：大帅老猿
 
 ## 1.2. 【拉开序幕的 setup】
 ### setup 概述
@@ -2418,5 +2417,6 @@ const Child = defineAsyncComponent(()=>import('./Child.vue'))
 - 移除了`$children` 实例 `propert`。
 
   ......
+
 
 
