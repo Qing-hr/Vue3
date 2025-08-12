@@ -294,7 +294,7 @@ function test(){
 
 > 1. `ref`创建的变量必须使用`.value`（可以使用`volar`插件自动添加`.value`）。
 >
->    <img src="images/自动补充value.png" alt="自动补充value" style="zoom:50%;border-radius:20px" /> 
+
 >
 > 2. `reactive`重新分配一个新对象，会**失去**响应式（可以使用`Object.assign`去整体替换）。
 
@@ -1048,11 +1048,8 @@ function test(){
 
 # 2. 路由
 
-## 2.1. 【对路由的理解】
 
-<img src="images/image-20231018144351536.png" alt="image-20231018144351536" style="zoom:20%;border-radius:40px" /> 
-
-## 2.2. 【基本切换效果】
+## 2.1. 【基本切换效果】
 
 - `Vue3`中要使用`vue-router`的最新版本，目前是`4`版本。
 
@@ -1112,13 +1109,13 @@ function test(){
   </script>
   ```
 
-## 2.3. 【两个注意点】
+## 2.2. 【两个注意点】
 
 > 1. 路由组件通常存放在`pages` 或 `views`文件夹，一般组件通常存放在`components`文件夹。
 >
 > 2. 通过点击导航，视觉效果上“消失” 了的路由组件，默认是被**卸载**掉的，需要的时候再去**挂载**。
 
-## 2.4.【路由器工作模式】
+## 2.3.【路由器工作模式】
 
 1. `history`模式
 
@@ -1146,7 +1143,7 @@ function test(){
    > })
    > ```
 
-## 2.5. 【to的两种写法】
+## 2.4. 【to的两种写法】
 
 ```vue
 <!-- 第一种：to的字符串写法 -->
@@ -1156,7 +1153,7 @@ function test(){
 <router-link active-class="active" :to="{path:'/home'}">Home</router-link>
 ```
 
-## 2.6. 【命名路由】
+## 2.5. 【命名路由】
 
 作用：可以简化路由跳转及传参（后面就讲）。
 
@@ -1194,7 +1191,7 @@ routes:[
 
 
 
-## 2.7. 【嵌套路由】
+## 2.6. 【嵌套路由】
 
 1. 编写`News`的子路由：`Detail.vue`
 
@@ -1258,7 +1255,7 @@ routes:[
 
    
 
-## 2.8. 【路由传参】
+## 2.7. 【路由传参】
 
 ### query参数
 
@@ -1332,7 +1329,7 @@ routes:[
 >
 > 备注2：传递`params`参数时，需要提前在规则中占位。
 
-## 2.9. 【路由的props配置】
+## 2.8. 【路由的props配置】
 
 作用：让路由组件更方便的收到参数（可以将路由参数作为`props`传给组件）
 
@@ -1355,7 +1352,7 @@ routes:[
 }
 ```
 
-## 2.10. 【 replace属性】
+## 2.9. 【 replace属性】
 
   1. 作用：控制路由跳转时操作浏览器历史记录的模式。
 
@@ -1370,7 +1367,7 @@ routes:[
      <RouterLink replace .......>News</RouterLink>
      ```
 
-## 2.11. 【编程式导航】
+## 2.10. 【编程式导航】
 
 路由组件的两个重要的属性：`$route`和`$router`变成了两个`hooks`
 
@@ -1386,7 +1383,7 @@ console.log(router.push)
 console.log(router.replace)
 ```
 
-## 2.12. 【重定向】
+## 2.11. 【重定向】
 
 1. 作用：将特定的路径，重新定向到已有路由。
 
@@ -1403,11 +1400,8 @@ console.log(router.replace)
 
 # 3. pinia 
 
-## 3.1【准备一个效果】
 
-<img src="./images/pinia_example.gif" alt="pinia_example" style="zoom:30%;border:3px solid" /> 
-
-## 3.2【搭建 pinia 环境】
+## 3.1【搭建 pinia 环境】
 
 第一步：`npm install pinia`
 
@@ -1433,7 +1427,7 @@ app.mount('#app')
 
 <img src="https://cdn.nlark.com/yuque/0/2023/png/35780599/1684309952481-c67f67f9-d1a3-4d69-8bd6-2b381e003f31.png" style="zoom:80%;border:1px solid black;border-radius:10px" />
 
-## 3.3【存储+读取数据】
+## 3.2【存储+读取数据】
 
 1. `Store`是一个保存：**状态**、**业务逻辑** 的实体，每个组件都可以**读取**、**写入**它。
 
@@ -1520,7 +1514,7 @@ app.mount('#app')
 
    
 
-## 3.4.【修改数据】(三种方式)
+## 3.3.【修改数据】(三种方式)
 
 1. 第一种修改方式，直接修改
 
@@ -1574,7 +1568,7 @@ app.mount('#app')
    ```
 
 
-## 3.5.【storeToRefs】
+## 3.4.【storeToRefs】
 
 - 借助`storeToRefs`将`store`中的数据转为`ref`对象，方便在模板中使用。
 - 注意：`pinia`提供的`storeToRefs`只会将数据做转换，而`Vue`的`toRefs`会转换`store`中数据。
@@ -1599,7 +1593,7 @@ app.mount('#app')
 
 ```
 
-## 3.6.【getters】
+## 3.5.【getters】
 
   1. 概念：当`state`中的数据，需要经过处理后再使用时，可以使用`getters`配置。
 
@@ -1641,7 +1635,7 @@ app.mount('#app')
 
      
 
-## 3.7.【$subscribe】
+## 3.6.【$subscribe】
 
 通过 store 的 `$subscribe()` 方法侦听 `state` 及其变化
 
@@ -1654,7 +1648,7 @@ talkStore.$subscribe((mutate,state)=>{
 
 
 
-## 3.8. 【store组合式写法】
+## 3.7. 【store组合式写法】
 
 ```ts
 import {defineStore} from 'pinia'
@@ -1693,10 +1687,7 @@ export const useTalkStore = defineStore('talk',()=>{
 - 把`.sync`优化到了`v-model`里面了。
 - 把`$listeners`所有的东西，合并到`$attrs`中了。
 - `$children`被砍掉了。
-
-**常见搭配形式：**
-
-<img src="images/image-20231119185900990.png" alt="image-20231119185900990" style="zoom:60%;" /> 
+ 
 
 ## 4.1. 【props】
 
@@ -2417,6 +2408,7 @@ const Child = defineAsyncComponent(()=>import('./Child.vue'))
 - 移除了`$children` 实例 `propert`。
 
   ......
+
 
 
 
