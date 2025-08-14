@@ -1876,6 +1876,7 @@ const emitter = mitt()
 // 创建并暴露mitt
 export default emitter
 ```
+<strong style="color:red">提供数据一定是触发事件 接收数据一定是绑定事件</strong >
 
 子组件1：
 
@@ -2544,6 +2545,7 @@ const Child = defineAsyncComponent(()=>import('./Child.vue'))
 - 移除了`$children` 实例 `propert`。
 
   ......
+
 
 
 
